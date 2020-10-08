@@ -1,0 +1,23 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+	<qresource>
+		<file>.img/diet.png</file>
+		<file>.img/house.png</file>
+		<file>.img/man.png</file>
+		<file>.img/sleeping.png</file>
+		<file>.img/web-development.png</file>
+		<file>.img/logo.png</file>
+		<file>.img/zeyad.png</file>
+		<file>.img/gehan.png</file>
+		<file>.img/potato.png</file>
+		<file>.img/bread.png</file>
+		<file>.img/rice.png</file>
+		<file>.img/spaghetti.png</file>
+		<file>.img/dessert.png</file>
+		<file>.img/eggs.png</file>
+		<file>.img/beef.png</file>
+		<file>.img/fish.png</file>
+		<file>.img/milk.png</file>
+		<file>.img/chicken-breast.png</file>
+	</qresource>
+</RCC>

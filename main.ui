@@ -1,0 +1,3579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>389</width>
+    <height>551</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ---------------------------------------------------------------------------
+
+    Created by the qtsass compiler
+
+    WARNING! All changes made in this file will be lost!
+
+--------------------------------------------------------------------------- */
+/* QDarkStyleSheet -----------------------------------------------------------
+
+This is the main style sheet, the palette has eight colors.
+
+It is based on three selecting colors, three greyish (background) colors
+plus three whitish (foreground) colors. Each set of widgets of the same
+type have a header like this:
+
+    ------------------
+    GroupName --------
+    ------------------
+
+And each widget is separated with a header like this:
+
+    QWidgetName ------
+
+This makes more easy to find and change some css field. The basic
+configuration is described bellow.
+
+    BACKGROUND -----------
+
+        Light  #4D545B #505F69 (unpressed)
+        Normal #31363B #32414B (border, disabled, pressed, checked, toolbars, menus)
+        Dark   #232629 #19232D (background)
+
+    FOREGROUND -----------
+
+        Light  #EFF0F1 #F0F0F0 (texts/labels)
+        Normal         #AAAAAA (not used yet)
+        Dark   #505F69 #787878 (disabled texts)
+
+    SELECTION ------------
+
+        Light  #179AE0 #148CD2 (selection/hover/active)
+        Normal #3375A3 #1464A0 (selected)
+        Dark   #18465D #14506E (selected disabled)
+
+If a stranger configuration is required because of a bugfix or anything
+else, keep the comment on the line above so nobody changes it, including the
+issue number.
+
+*/
+/*
+
+See Qt documentation:
+
+  - https://doc.qt.io/qt-5/stylesheet.html
+  - https://doc.qt.io/qt-5/stylesheet-reference.html
+  - https://doc.qt.io/qt-5/stylesheet-examples.html
+
+--------------------------------------------------------------------------- */
+/* QWidget ----------------------------------------------------------------
+
+--------------------------------------------------------------------------- */
+QWidget {
+    background-color: #19232D;
+    border: 0px solid #32414B;
+    padding: 0px;
+    color: #F0F0F0;
+    selection-background-color: #1464A0;
+    selection-color: #F0F0F0;
+  }
+  
+  QWidget:disabled {
+    background-color: #19232D;
+    color: #787878;
+    selection-background-color: #14506E;
+    selection-color: #787878;
+  }
+  
+  QWidget::item:selected {
+    background-color: #1464A0;
+  }
+  
+  QWidget::item:hover {
+    background-color: #148CD2;
+    color: #32414B;
+  }
+  
+  /* QMainWindow ------------------------------------------------------------
+  
+  This adjusts the splitter in the dock widget, not qsplitter
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmainwindow
+  
+  --------------------------------------------------------------------------- */
+  QMainWindow::separator {
+    background-color: #32414B;
+    border: 0px solid #19232D;
+    spacing: 0px;
+    padding: 2px;
+  }
+  
+  QMainWindow::separator:hover {
+    background-color: #505F69;
+    border: 0px solid #148CD2;
+  }
+  
+  QMainWindow::separator:horizontal {
+    width: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    image: url(&quot;:/qss_icons/rc/Vsepartoolbar.png&quot;);
+  }
+  
+  QMainWindow::separator:vertical {
+    height: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    image: url(&quot;:/qss_icons/rc/Hsepartoolbar.png&quot;);
+  }
+  
+  /* QToolTip ---------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtooltip
+  
+  --------------------------------------------------------------------------- */
+  QToolTip {
+    background-color: #148CD2;
+    border: 1px solid #19232D;
+    color: #19232D;
+    /* Remove padding, for fix combo box tooltip */
+    padding: 0px;
+    /* Reducing transparency to read better */
+    opacity: 230;
+  }
+  
+  /* QStatusBar -------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qstatusbar
+  
+  --------------------------------------------------------------------------- */
+  QStatusBar {
+    border: 1px solid #32414B;
+    /* Fixes Spyder #9120, #9121 */
+    background: #32414B;
+  }
+  
+  QStatusBar QToolTip {
+    background-color: #148CD2;
+    border: 1px solid #19232D;
+    color: #19232D;
+    /* Remove padding, for fix combo box tooltip */
+    padding: 0px;
+    /* Reducing transparency to read better */
+    opacity: 230;
+  }
+  
+  QStatusBar QLabel {
+    /* Fixes Spyder #9120, #9121 */
+    background: transparent;
+  }
+  
+  /* QCheckBox --------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcheckbox
+  
+  --------------------------------------------------------------------------- */
+  QCheckBox {
+    background-color: #19232D;
+    color: #F0F0F0;
+    spacing: 4px;
+    outline: none;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  
+  QCheckBox:focus {
+    border: none;
+  }
+  
+  QCheckBox QWidget:disabled {
+    background-color: #19232D;
+    color: #787878;
+  }
+  
+  QCheckBox::indicator {
+    margin-left: 4px;
+    width: 16px;
+    height: 16px;
+    color: #F0F0F0;
+  }
+  
+  /* QGroupBox --------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qgroupbox
+  
+  --------------------------------------------------------------------------- */
+  QGroupBox {
+    font-weight: bold;
+    border: 1px solid #32414B;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 16px;
+  }
+  
+  QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 3px;
+    padding-left: 3px;
+    padding-right: 5px;
+    padding-top: 8px;
+    padding-bottom: 16px;
+  }
+  
+  QGroupBox::indicator {
+    margin-left: 2px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  QGroupBox::indicator:unchecked:hover, QGroupBox::indicator:unchecked:focus, QGroupBox::indicator:unchecked:pressed {
+    border: none;
+    image: url(&quot;:/qss_icons/rc/checkbox_unchecked_focus.png&quot;);
+  }
+  
+  QGroupBox::indicator:unchecked:disabled {
+    image: url(&quot;:/qss_icons/rc/checkbox_unchecked_disabled.png&quot;);
+  }
+  
+  QGroupBox::indicator:checked:hover, QGroupBox::indicator:checked:focus, QGroupBox::indicator:checked:pressed {
+    border: none;
+    image: url(&quot;:/qss_icons/rc/checkbox_checked_focus.png&quot;);
+  }
+  
+  QGroupBox::indicator:checked:disabled {
+    image: url(&quot;:/qss_icons/rc/checkbox_checked_disabled.png&quot;);
+  }
+  
+  /* QRadioButton -----------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qradiobutton
+  
+  --------------------------------------------------------------------------- */
+  QRadioButton {
+    background-color: #19232D;
+    color: #F0F0F0;
+    spacing: 0px;
+    padding: 0px;
+    border: none;
+    outline: none;
+  }
+  
+  QRadioButton:focus {
+    border: none;
+  }
+  
+  QRadioButton:disabled {
+    background-color: #19232D;
+    color: #787878;
+    border: none;
+    outline: none;
+  }
+  
+  QRadioButton QWidget {
+    background-color: #19232D;
+    color: #F0F0F0;
+    spacing: 0px;
+    padding: 0px;
+    outline: none;
+    border: none;
+  }
+  
+  QRadioButton::indicator {
+    border: none;
+    outline: none;
+    margin-bottom: 2px;
+    width: 25px;
+    height: 25px;
+  }
+  
+  QRadioButton::indicator:unchecked {
+    image: url(&quot;:/qss_icons/rc/radio_unchecked.png&quot;);
+  }
+  
+  QRadioButton::indicator:unchecked:hover, QRadioButton::indicator:unchecked:focus, QRadioButton::indicator:unchecked:pressed {
+    border: none;
+    outline: none;
+    image: url(&quot;:/qss_icons/rc/radio_unchecked_focus.png&quot;);
+  }
+  
+  QRadioButton::indicator:unchecked:disabled {
+    image: url(&quot;:/qss_icons/rc/radio_unchecked_disabled.png&quot;);
+  }
+  
+  QRadioButton::indicator:checked {
+    border: none;
+    outline: none;
+    image: url(&quot;:/qss_icons/rc/radio_checked.png&quot;);
+  }
+  
+  QRadioButton::indicator:checked:hover, QRadioButton::indicator:checked:focus, QRadioButton::indicator:checked:pressed {
+    border: none;
+    outline: none;
+    image: url(&quot;:/qss_icons/rc/radio_checked_focus.png&quot;);
+  }
+  
+  QRadioButton::indicator:checked:disabled {
+    outline: none;
+    image: url(&quot;:/qss_icons/rc/radio_checked_disabled.png&quot;);
+  }
+  
+  /* QMenuBar ---------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenubar
+  
+  --------------------------------------------------------------------------- */
+  QMenuBar {
+    background-color: #32414B;
+    padding: 2px;
+    border: 1px solid #19232D;
+    color: #F0F0F0;
+  }
+  
+  QMenuBar:focus {
+    border: 1px solid #148CD2;
+  }
+  
+  QMenuBar::item {
+    background: transparent;
+    padding: 4px;
+  }
+  
+  QMenuBar::item:selected {
+    padding: 4px;
+    background: transparent;
+    border: 0px solid #32414B;
+  }
+  
+  QMenuBar::item:pressed {
+    padding: 4px;
+    border: 0px solid #32414B;
+    background-color: #148CD2;
+    color: #F0F0F0;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  
+  /* QMenu ------------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenu
+  
+  --------------------------------------------------------------------------- */
+  QMenu {
+    border: 0px solid #32414B;
+    color: #F0F0F0;
+    margin: 0px;
+  }
+  
+  QMenu::separator {
+    height: 2px;
+    background-color: #505F69;
+    color: #F0F0F0;
+    padding-left: 4px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+  
+  QMenu::icon {
+    margin: 0px;
+    padding-left: 4px;
+  }
+  
+  QMenu::item {
+    padding: 4px 24px 4px 24px;
+    /* Reserve space for selection border */
+    border: 1px transparent #32414B;
+  }
+  
+  QMenu::item:selected {
+    color: #F0F0F0;
+  }
+  
+  QMenu::indicator {
+    width: 12px;
+    height: 12px;
+    padding-left: 6px;
+    /* non-exclusive indicator = check box style indicator (see QActionGroup::setExclusive) */
+    /* exclusive indicator = radio button style indicator (see QActionGroup::setExclusive) */
+  }
+  
+  QMenu::indicator:non-exclusive:unchecked {
+    image: url(&quot;:/qss_icons/rc/checkbox_unchecked.png&quot;);
+  }
+  
+  QMenu::indicator:non-exclusive:unchecked:selected {
+    image: url(&quot;:/qss_icons/rc/checkbox_unchecked_disabled.png&quot;);
+  }
+  
+  QMenu::indicator:non-exclusive:checked {
+    image: url(&quot;:/qss_icons/rc/checkbox_checked.png&quot;);
+  }
+  
+  QMenu::indicator:non-exclusive:checked:selected {
+    image: url(&quot;:/qss_icons/rc/checkbox_checked_disabled.png&quot;);
+  }
+  
+  QMenu::indicator:exclusive:unchecked {
+    image: url(&quot;:/qss_icons/rc/radio_unchecked.png&quot;);
+  }
+  
+  QMenu::indicator:exclusive:unchecked:selected {
+    image: url(&quot;:/qss_icons/rc/radio_unchecked_disabled.png&quot;);
+  }
+  
+  QMenu::indicator:exclusive:checked {
+    image: url(&quot;:/qss_icons/rc/radio_checked.png&quot;);
+  }
+  
+  QMenu::indicator:exclusive:checked:selected {
+    image: url(&quot;:/qss_icons/rc/radio_checked_disabled.png&quot;);
+  }
+  
+  QMenu::right-arrow {
+    margin: 5px;
+    image: url(&quot;:/qss_icons/rc/right_arrow.png&quot;);
+  }
+  
+  /* QAbstractItemView ------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcombobox
+  
+  --------------------------------------------------------------------------- */
+  QAbstractItemView {
+    alternate-background-color: #19232D;
+    color: #F0F0F0;
+    border: 1px solid #32414B;
+    border-radius: 4px;
+  }
+  
+  QAbstractItemView QLineEdit {
+    padding: 2px;
+  }
+  
+  /* QAbstractScrollArea ----------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qabstractscrollarea
+  
+  --------------------------------------------------------------------------- */
+  QAbstractScrollArea {
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    border-radius: 4px;
+    padding: 4px;
+    color: #F0F0F0;
+  }
+  
+  QAbstractScrollArea:disabled {
+    color: #787878;
+  }
+  
+  /* QScrollArea ------------------------------------------------------------
+  
+  --------------------------------------------------------------------------- */
+  QScrollArea QWidget QWidget:disabled {
+    background-color: #19232D;
+  }
+  
+  /* QScrollBar -------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qscrollbar
+  
+  --------------------------------------------------------------------------- */
+  QScrollBar:horizontal {
+    height: 16px;
+    margin: 2px 16px 2px 16px;
+    border: 1px solid #32414B;
+    border-radius: 4px;
+    background-color: #19232D;
+  }
+  
+  QScrollBar:vertical {
+    background-color: #19232D;
+    width: 16px;
+    margin: 16px 2px 16px 2px;
+    border: 1px solid #32414B;
+    border-radius: 4px;
+  }
+  
+  QScrollBar::handle:horizontal {
+    background-color: #787878;
+    border: 1px solid #32414B;
+    border-radius: 4px;
+    min-width: 8px;
+  }
+  
+  QScrollBar::handle:horizontal:hover {
+    background-color: #148CD2;
+    border: 1px solid #148CD2;
+    border-radius: 4px;
+    min-width: 8px;
+  }
+  
+  QScrollBar::handle:vertical {
+    background-color: #787878;
+    border: 1px solid #32414B;
+    min-height: 8px;
+    border-radius: 4px;
+  }
+  
+  QScrollBar::handle:vertical:hover {
+    background-color: #148CD2;
+    border: 1px solid #148CD2;
+    border-radius: 4px;
+    min-height: 8px;
+  }
+  
+  QScrollBar::add-line:horizontal {
+    margin: 0px 0px 0px 0px;
+    border-image: url(&quot;:/qss_icons/rc/right_arrow_disabled.png&quot;);
+    width: 10px;
+    height: 10px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+  }
+  
+  QScrollBar::add-line:horizontal:hover, QScrollBar::add-line:horizontal:on {
+    border-image: url(&quot;:/qss_icons/rc/right_arrow.png&quot;);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+  }
+  
+  QScrollBar::add-line:vertical {
+    margin: 3px 0px 3px 0px;
+    border-image: url(&quot;:/qss_icons/rc/down_arrow_disabled.png&quot;);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+  }
+  
+  QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on {
+    border-image: url(&quot;:/qss_icons/rc/down_arrow.png&quot;);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+  }
+  
+  QScrollBar::sub-line:horizontal {
+    margin: 0px 3px 0px 3px;
+    border-image: url(&quot;:/qss_icons/rc/left_arrow_disabled.png&quot;);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+  }
+  
+  QScrollBar::sub-line:horizontal:hover, QScrollBar::sub-line:horizontal:on {
+    border-image: url(&quot;:/qss_icons/rc/left_arrow.png&quot;);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+  }
+  
+  QScrollBar::sub-line:vertical {
+    margin: 3px 0px 3px 0px;
+    border-image: url(&quot;:/qss_icons/rc/up_arrow_disabled.png&quot;);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+  }
+  
+  QScrollBar::sub-line:vertical:hover, QScrollBar::sub-line:vertical:on {
+    border-image: url(&quot;:/qss_icons/rc/up_arrow.png&quot;);
+    height: 10px;
+    width: 10px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+  }
+  
+  QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {
+    background: none;
+  }
+  
+  QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+    background: none;
+  }
+  
+  QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: none;
+  }
+  
+  QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+  }
+  
+  /* QTextEdit --------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-specific-widgets
+  
+  --------------------------------------------------------------------------- */
+  QTextEdit {
+    background-color: #19232D;
+    color: #F0F0F0;
+    border: 1px solid #32414B;
+  }
+  
+  QTextEdit:hover {
+    border: 1px solid #148CD2;
+    color: #F0F0F0;
+  }
+  
+  QTextEdit:selected {
+    background: #1464A0;
+    color: #32414B;
+  }
+  
+  /* QPlainTextEdit ---------------------------------------------------------
+  
+  --------------------------------------------------------------------------- */
+  QPlainTextEdit {
+    background-color: #19232D;
+    color: #F0F0F0;
+    border-radius: 4px;
+    border: 1px solid #32414B;
+  }
+  
+  QPlainTextEdit:hover {
+    border: 1px solid #148CD2;
+    color: #F0F0F0;
+  }
+  
+  QPlainTextEdit:selected {
+    background: #1464A0;
+    color: #32414B;
+  }
+  
+  /* QSizeGrip --------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qsizegrip
+  
+  --------------------------------------------------------------------------- */
+  QSizeGrip {
+    background: transparent;
+    width: 12px;
+    height: 12px;
+    image: url(&quot;:/qss_icons/rc/sizegrip.png&quot;);
+  }
+  
+  /* QStackedWidget ---------------------------------------------------------
+  
+  --------------------------------------------------------------------------- */
+  QStackedWidget {
+    padding: 4px;
+    border: 1px solid #32414B;
+    border: 1px solid #19232D;
+  }
+  
+  /* QToolBar ---------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtoolbar
+  
+  --------------------------------------------------------------------------- */
+  QToolBar {
+    background-color: #32414B;
+    border-bottom: 1px solid #19232D;
+    padding: 2px;
+    font-weight: bold;
+  }
+  
+  QToolBar QToolButton {
+    background-color: #32414B;
+  }
+  
+  QToolBar::handle:horizontal {
+    width: 6px;
+    image: url(&quot;:/qss_icons/rc/Hmovetoolbar.png&quot;);
+  }
+  
+  QToolBar::handle:vertical {
+    height: 6px;
+    image: url(&quot;:/qss_icons/rc/Vmovetoolbar.png&quot;);
+  }
+  
+  QToolBar::separator:horizontal {
+    width: 3px;
+    image: url(&quot;:/qss_icons/rc/Hsepartoolbar.png&quot;);
+  }
+  
+  QToolBar::separator:vertical {
+    height: 3px;
+    image: url(&quot;:/qss_icons/rc/Vsepartoolbar.png&quot;);
+  }
+  
+  QToolButton#qt_toolbar_ext_button {
+    background: #32414B;
+    border: 0px;
+    color: #F0F0F0;
+    image: url(&quot;:/qss_icons/rc/right_arrow.png&quot;);
+  }
+  
+  /* QAbstractSpinBox -------------------------------------------------------
+  
+  --------------------------------------------------------------------------- */
+  QAbstractSpinBox {
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    color: #F0F0F0;
+    /* This fixes 103, 111 */
+    padding-top: 2px;
+    /* This fixes 103, 111 */
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 4px;
+    /* min-width: 5px; removed to fix 109 */
+  }
+  
+  QAbstractSpinBox:up-button {
+    background-color: transparent #19232D;
+    subcontrol-origin: border;
+    subcontrol-position: top right;
+    border-left: 1px solid #32414B;
+    margin: 1px;
+  }
+  
+  QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
+    image: url(&quot;:/qss_icons/rc/up_arrow_disabled.png&quot;);
+    width: 9px;
+    height: 9px;
+  }
+  
+  QAbstractSpinBox::up-arrow:hover {
+    image: url(&quot;:/qss_icons/rc/up_arrow.png&quot;);
+  }
+  
+  QAbstractSpinBox:down-button {
+    background-color: transparent #19232D;
+    subcontrol-origin: border;
+    subcontrol-position: bottom right;
+    border-left: 1px solid #32414B;
+    margin: 1px;
+  }
+  
+  QAbstractSpinBox::down-arrow, QAbstractSpinBox::down-arrow:disabled, QAbstractSpinBox::down-arrow:off {
+    image: url(&quot;:/qss_icons/rc/down_arrow_disabled.png&quot;);
+    width: 9px;
+    height: 9px;
+  }
+  
+  QAbstractSpinBox::down-arrow:hover {
+    image: url(&quot;:/qss_icons/rc/down_arrow.png&quot;);
+  }
+  
+  QAbstractSpinBox:hover {
+    border: 1px solid #148CD2;
+    color: #F0F0F0;
+  }
+  
+  QAbstractSpinBox:selected {
+    background: #1464A0;
+    color: #32414B;
+  }
+  
+  /* ------------------------------------------------------------------------ */
+  /* DISPLAYS --------------------------------------------------------------- */
+  /* ------------------------------------------------------------------------ */
+  /* QLabel -----------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qframe
+  
+  --------------------------------------------------------------------------- */
+  QLabel {
+    background-color: #19232D;
+    border: 0px solid #32414B;
+    padding: 2px;
+    margin: 0px;
+    color: #F0F0F0;
+  }
+  
+  QLabel::disabled {
+    background-color: #19232D;
+    border: 0px solid #32414B;
+    color: #787878;
+  }
+  
+  /* QTextBrowser -----------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qabstractscrollarea
+  
+  --------------------------------------------------------------------------- */
+  QTextBrowser {
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    color: #F0F0F0;
+    border-radius: 4px;
+  }
+  
+  QTextBrowser:disabled {
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    color: #787878;
+    border-radius: 4px;
+  }
+  
+  QTextBrowser:hover, QTextBrowser:!hover, QTextBrowser::selected, QTextBrowser::pressed {
+    border: 1px solid #32414B;
+  }
+  
+  /* QGraphicsView ----------------------------------------------------------
+  
+  --------------------------------------------------------------------------- */
+  QGraphicsView {
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    color: #F0F0F0;
+    border-radius: 4px;
+  }
+  
+  QGraphicsView:disabled {
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    color: #787878;
+    border-radius: 4px;
+  }
+  
+  QGraphicsView:hover, QGraphicsView:!hover, QGraphicsView::selected, QGraphicsView::pressed {
+    border: 1px solid #32414B;
+  }
+  
+  /* QCalendarWidget --------------------------------------------------------
+  
+  --------------------------------------------------------------------------- */
+  QCalendarWidget {
+    border: 1px solid #32414B;
+    border-radius: 4px;
+  }
+  
+  QCalendarWidget:disabled {
+    background-color: #19232D;
+    color: #787878;
+  }
+  
+  /* QLCDNumber -------------------------------------------------------------
+  
+  --------------------------------------------------------------------------- */
+  QLCDNumber {
+    background-color: #19232D;
+    color: #F0F0F0;
+  }
+  
+  QLCDNumber:disabled {
+    background-color: #19232D;
+    color: #787878;
+  }
+  
+  /* QProgressBar -----------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qprogressbar
+  
+  --------------------------------------------------------------------------- */
+  QProgressBar {
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    color: #F0F0F0;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  QProgressBar:disabled {
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    color: #787878;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  QProgressBar::chunk {
+    background-color: #1464A0;
+    color: #19232D;
+    border-radius: 4px;
+  }
+  
+  QProgressBar::chunk:disabled {
+    background-color: #14506E;
+    color: #787878;
+    border-radius: 4px;
+  }
+  
+  /* ------------------------------------------------------------------------ */
+  /* BUTTONS ---------------------------------------------------------------- */
+  /* ------------------------------------------------------------------------ */
+  /* QPushButton ------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qpushbutton
+  
+  --------------------------------------------------------------------------- */
+  QPushButton {
+    background-color: #505F69;
+    border: 1px solid #32414B;
+    color: #F0F0F0;
+    border-radius: 4px;
+    padding: 3px;
+    outline: none;
+  }
+  
+  QPushButton:disabled {
+    background-color: #32414B;
+    border: 1px solid #32414B;
+    color: #787878;
+    border-radius: 4px;
+    padding: 3px;
+  }
+  
+  QPushButton:checked {
+    background-color: #32414B;
+    border: 1px solid #32414B;
+    border-radius: 4px;
+    padding: 3px;
+    outline: none;
+  }
+  
+  QPushButton:checked:disabled {
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    color: #787878;
+    border-radius: 4px;
+    padding: 3px;
+    outline: none;
+  }
+  
+  QPushButton:checked:selected {
+    background: #1464A0;
+    color: #32414B;
+  }
+  
+  QPushButton:checked:hover {
+    border: 1px solid #148CD2;
+    color: #F0F0F0;
+  }
+  
+  QPushButton::menu-indicator {
+    subcontrol-origin: padding;
+    subcontrol-position: bottom right;
+    bottom: 4px;
+  }
+  
+  QPushButton:pressed {
+    background-color: #19232D;
+    border: 1px solid #19232D;
+  }
+  
+  QPushButton:pressed:hover {
+    border: 1px solid #148CD2;
+  }
+  
+  QPushButton:hover {
+    border: 1px solid #148CD2;
+    color: #F0F0F0;
+  }
+  
+  QPushButton:selected {
+    background: #1464A0;
+    color: #32414B;
+  }
+  
+  /* QToolButton ------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtoolbutton
+  
+  --------------------------------------------------------------------------- */
+  QToolButton {
+    background-color: transparent;
+    border: 1px solid #32414B;
+    border-radius: 4px;
+    margin: 0px;
+    padding: 2px;
+    /* The subcontrols below are used only in the MenuButtonPopup mode */
+    /* The subcontrol below is used only in the InstantPopup or DelayedPopup mode */
+  }
+  
+  QToolButton:checked {
+    background-color: #19232D;
+    border: 1px solid #19232D;
+  }
+  
+  QToolButton:checked:hover {
+    border: 1px solid #148CD2;
+  }
+  
+  QToolButton:pressed {
+    background-color: #19232D;
+    border: 1px solid #19232D;
+  }
+  
+  QToolButton:pressed:hover {
+    border: 1px solid #148CD2;
+  }
+  
+  QToolButton:disabled {
+    border: 1px solid #32414B;
+  }
+  
+  QToolButton:hover {
+    border: 1px solid #148CD2;
+  }
+  
+  QToolButton[popupMode=&quot;1&quot;] {
+    padding: 2px;
+    /* Only for MenuButtonPopup */
+    padding-right: 12px;
+    /* Make way for the popup button */
+    border: 1px solid #32414B;
+    border-radius: 4px;
+  }
+  
+  QToolButton[popupMode=&quot;2&quot;] {
+    padding: 2px;
+    /* Only for InstantPopup */
+    padding-right: 12px;
+    /* Make way for the popup button */
+    border: 1px solid #32414B;
+  }
+  
+  QToolButton::menu-button {
+    padding: 2px;
+    border-radius: 4px;
+    border: 1px solid #32414B;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    /* 16px width + 4px for border = 20px allocated above */
+    width: 16px;
+    outline: none;
+  }
+  
+  QToolButton::menu-button:hover {
+    border: 1px solid #148CD2;
+  }
+  
+  QToolButton::menu-button:checked:hover {
+    border: 1px solid #148CD2;
+  }
+  
+  QToolButton::menu-indicator {
+    image: url(&quot;:/qss_icons/rc/down_arrow.png&quot;);
+    top: -8px;
+    /* Shift it a bit */
+    left: -4px;
+    /* Shift it a bit */
+  }
+  
+  QToolButton::menu-arrow {
+    image: url(&quot;:/qss_icons/rc/down_arrow.png&quot;);
+  }
+  
+  QToolButton::menu-arrow:open {
+    border: 1px solid #32414B;
+  }
+  
+  /* QCommandLinkButton -----------------------------------------------------
+  
+  --------------------------------------------------------------------------- */
+  QCommandLinkButton {
+    background-color: transparent;
+    border: 1px solid #32414B;
+    color: #F0F0F0;
+    border-radius: 4px;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  QCommandLinkButton:disabled {
+    background-color: transparent;
+    color: #787878;
+  }
+  
+  /* ------------------------------------------------------------------------ */
+  /* INPUTS - NO FIELDS ----------------------------------------------------- */
+  /* ------------------------------------------------------------------------ */
+  /* QComboBox --------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcombobox
+  
+  --------------------------------------------------------------------------- */
+  QComboBox {
+    border: 1px solid #32414B;
+    border-radius: 4px;
+    selection-background-color: #1464A0;
+    padding-left: 4px;
+    padding-right: 4px;
+    /* Fixes #103, #111 */
+    min-height: 1.5em;
+    /* padding-top: 2px;     removed to fix #132 */
+    /* padding-bottom: 2px;  removed to fix #132 */
+    /* min-width: 75px;      removed to fix #109 */
+    /* Needed to remove indicator - fix #132 */
+  }
+  
+  QComboBox QAbstractItemView {
+    background-color: #19232D;
+    border-radius: 4px;
+    border: 1px solid #32414B;
+    selection-color: #148CD2;
+    selection-background-color: #32414B;
+  }
+  
+  QComboBox:disabled {
+    background-color: #19232D;
+    color: #787878;
+  }
+  
+  QComboBox:hover {
+    border: 1px solid #148CD2;
+  }
+  
+  QComboBox:on {
+    selection-background-color: #19232D;
+  }
+  
+  QComboBox::indicator {
+    background-color: transparent;
+    selection-background-color: transparent;
+    color: transparent;
+    selection-color: transparent;
+    /* Needed to remove indicator - fix #132 */
+  }
+  
+  QComboBox::indicator:alternate {
+    background: #19232D;
+  }
+  
+  QComboBox::item:alternate {
+    background: #19232D;
+  }
+  
+  QComboBox::item:checked {
+    font-weight: bold;
+  }
+  
+  QComboBox::item:selected {
+    border: 0px solid transparent;
+  }
+  
+  QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left-width: 0px;
+    border-left-color: #32414B;
+    border-left-style: solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  
+  QComboBox::down-arrow {
+    image: url(&quot;:/qss_icons/rc/down_arrow_disabled.png&quot;);
+  }
+  
+  QComboBox::down-arrow:on, QComboBox::down-arrow:hover, QComboBox::down-arrow:focus {
+    image: url(&quot;:/qss_icons/rc/down_arrow.png&quot;);
+  }
+  
+  /* QSlider ----------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qslider
+  
+  --------------------------------------------------------------------------- */
+  QSlider:disabled {
+    background: #19232D;
+  }
+  
+  QSlider:focus {
+    border: none;
+  }
+  
+  QSlider::groove:horizontal {
+    background: #32414B;
+    border: 1px solid #32414B;
+    height: 4px;
+    margin: 0px;
+    border-radius: 4px;
+  }
+  
+  QSlider::groove:vertical {
+    background: #32414B;
+    border: 1px solid #32414B;
+    width: 4px;
+    margin: 0px;
+    border-radius: 4px;
+  }
+  
+  QSlider::add-page:vertical {
+    background: #1464A0;
+    border: 1px solid #32414B;
+    width: 4px;
+    margin: 0px;
+    border-radius: 4px;
+  }
+  
+  QSlider::add-page:vertical :disabled {
+    background: #14506E;
+  }
+  
+  QSlider::sub-page:horizontal {
+    background: #1464A0;
+    border: 1px solid #32414B;
+    height: 4px;
+    margin: 0px;
+    border-radius: 4px;
+  }
+  
+  QSlider::sub-page:horizontal:disabled {
+    background: #14506E;
+  }
+  
+  QSlider::handle:horizontal {
+    background: #787878;
+    border: 1px solid #32414B;
+    width: 8px;
+    height: 8px;
+    margin: -8px 0px;
+    border-radius: 4px;
+  }
+  
+  QSlider::handle:horizontal:hover {
+    background: #148CD2;
+    border: 1px solid #148CD2;
+  }
+  
+  QSlider::handle:vertical {
+    background: #787878;
+    border: 1px solid #32414B;
+    width: 8px;
+    height: 8px;
+    margin: 0 -8px;
+    border-radius: 4px;
+  }
+  
+  QSlider::handle:vertical:hover {
+    background: #148CD2;
+    border: 1px solid #148CD2;
+  }
+  
+  /* QLineEdit --------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qlineedit
+  
+  --------------------------------------------------------------------------- */
+  QLineEdit {
+    background-color: #19232D;
+    padding-top: 2px;
+    /* This QLineEdit fix  103, 111 */
+    padding-bottom: 2px;
+    /* This QLineEdit fix  103, 111 */
+    padding-left: 4px;
+    padding-right: 4px;
+    border-style: solid;
+    border: 1px solid #32414B;
+    border-radius: 4px;
+    color: #F0F0F0;
+  }
+  
+  QLineEdit:disabled {
+    background-color: #19232D;
+    color: #787878;
+  }
+  
+  QLineEdit:hover {
+    border: 1px solid #148CD2;
+    color: #F0F0F0;
+  }
+  
+  QLineEdit:selected {
+    background: #1464A0;
+    color: #32414B;
+  }
+  
+  /* QTabWiget --------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtabwidget-and-qtabbar
+  
+  --------------------------------------------------------------------------- */
+  QTabWidget {
+    padding: 2px;
+    selection-background-color: #32414B;
+    /* Add wanted borders - fix #141, #126, #123 */
+  }
+  
+  QTabWidget QWidget {
+    border: 0px solid #32414B;
+  }
+  
+  QTabWidget QWidget QWidget
+  QTableView,
+  QTabWidget QTreeView,
+  QTabWidget QListView,
+  QTabWidget QGroupBox,
+  QTabWidget QLineEdit,
+  QTabWidget QComboBox,
+  QTabWidget QFontComboBox,
+  QTabWidget QTextEdit,
+  QTabWidget QSpinBox,
+  QTabWidget QDoubleSpinBox {
+    border: 1px solid #32414B;
+  }
+  
+  QTabWidget::pane {
+    border: 1px solid #32414B;
+    border-radius: 4px;
+    margin: 0px;
+    /* Fixes double border inside pane wit pyqt5 */
+    padding: 0px;
+  }
+  
+  QTabWidget::pane:selected {
+    background-color: #32414B;
+    border: 1px solid #1464A0;
+  }
+  
+  /* QTabBar ----------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtabwidget-and-qtabbar
+  
+  --------------------------------------------------------------------------- */
+  QTabBar {
+    qproperty-drawBase: 0;
+    border-radius: 4px;
+    margin: 0px;
+    padding: 2px;
+    border: 0;
+    /* left: 5px; move to the right by 5px - removed for fix */
+  }
+  
+  QTabBar::close-button {
+    border: 0;
+    margin: 2px;
+    padding: 0px;
+    image: url(&quot;:/qss_icons/rc/close.png&quot;);
+  }
+  
+  QTabBar::close-button:hover {
+    image: url(&quot;:/qss_icons/rc/close-hover.png&quot;);
+  }
+  
+  QTabBar::close-button:pressed {
+    image: url(&quot;:/qss_icons/rc/close-pressed.png&quot;);
+  }
+  
+  /* QTabBar::tab - selected ------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtabwidget-and-qtabbar
+  
+  --------------------------------------------------------------------------- */
+  QTabBar::tab {
+    /* !selected and disabled ----------------------------------------- */
+    /* selected ------------------------------------------------------- */
+  }
+  
+  QTabBar::tab:top:selected:disabled {
+    border-bottom: 3px solid #14506E;
+    color: #787878;
+    background-color: #32414B;
+  }
+  
+  QTabBar::tab:bottom:selected:disabled {
+    border-top: 3px solid #14506E;
+    color: #787878;
+    background-color: #32414B;
+  }
+  
+  QTabBar::tab:left:selected:disabled {
+    border-left: 3px solid #14506E;
+    color: #787878;
+    background-color: #32414B;
+  }
+  
+  QTabBar::tab:right:selected:disabled {
+    border-right: 3px solid #14506E;
+    color: #787878;
+    background-color: #32414B;
+  }
+  
+  QTabBar::tab:top:!selected:disabled {
+    border-bottom: 3px solid #19232D;
+    color: #787878;
+    background-color: #19232D;
+  }
+  
+  QTabBar::tab:bottom:!selected:disabled {
+    border-top: 3px solid #19232D;
+    color: #787878;
+    background-color: #19232D;
+  }
+  
+  QTabBar::tab:left:!selected:disabled {
+    border-right: 3px solid #19232D;
+    color: #787878;
+    background-color: #19232D;
+  }
+  
+  QTabBar::tab:right:!selected:disabled {
+    border-left: 3px solid #19232D;
+    color: #787878;
+    background-color: #19232D;
+  }
+  
+  QTabBar::tab:top:!selected {
+    border-bottom: 2px solid #19232D;
+    margin-top: 2px;
+  }
+  
+  QTabBar::tab:bottom:!selected {
+    border-top: 2px solid #19232D;
+    margin-bottom: 3px;
+  }
+  
+  QTabBar::tab:left:!selected {
+    border-left: 2px solid #19232D;
+    margin-right: 2px;
+  }
+  
+  QTabBar::tab:right:!selected {
+    border-right: 2px solid #19232D;
+    margin-left: 2px;
+  }
+  
+  QTabBar::tab:top {
+    background-color: #32414B;
+    color: #F0F0F0;
+    margin-left: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    min-width: 5px;
+    border-bottom: 3px solid #32414B;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  
+  QTabBar::tab:top:selected {
+    background-color: #505F69;
+    color: #F0F0F0;
+    border-bottom: 3px solid #1464A0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  
+  QTabBar::tab:top:!selected:hover {
+    border: 1px solid #148CD2;
+    border-bottom: 3px solid #148CD2;
+    padding: 0px;
+  }
+  
+  QTabBar::tab:bottom {
+    color: #F0F0F0;
+    border-top: 3px solid #32414B;
+    background-color: #32414B;
+    margin-left: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    min-width: 5px;
+  }
+  
+  QTabBar::tab:bottom:selected {
+    color: #F0F0F0;
+    background-color: #505F69;
+    border-top: 3px solid #1464A0;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  
+  QTabBar::tab:bottom:!selected:hover {
+    border: 1px solid #148CD2;
+    border-top: 3px solid #148CD2;
+    padding: 0px;
+  }
+  
+  QTabBar::tab:left {
+    color: #F0F0F0;
+    background-color: #32414B;
+    margin-top: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    min-height: 5px;
+  }
+  
+  QTabBar::tab:left:selected {
+    color: #F0F0F0;
+    background-color: #505F69;
+    border-left: 3px solid #1464A0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  
+  QTabBar::tab:left:!selected:hover {
+    border: 1px solid #148CD2;
+    border-left: 3px solid #148CD2;
+    padding: 0px;
+  }
+  
+  QTabBar::tab:right {
+    color: #F0F0F0;
+    background-color: #32414B;
+    margin-top: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    min-height: 5px;
+  }
+  
+  QTabBar::tab:right:selected {
+    color: #F0F0F0;
+    background-color: #505F69;
+    border-right: 3px solid #1464A0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  
+  QTabBar::tab:right:!selected:hover {
+    border: 1px solid #148CD2;
+    border-right: 3px solid #148CD2;
+    padding: 0px;
+  }
+  
+  QTabBar QToolButton {
+    /* Fixes #136 */
+    background-color: #32414B;
+    width: 16px;
+    height: 16px;
+  }
+  
+  QTabBar QToolButton::left-arrow:enabled {
+    image: url(&quot;:/qss_icons/rc/left_arrow.png&quot;);
+  }
+  
+  QTabBar QToolButton::left-arrow:disabled {
+    image: url(&quot;:/qss_icons/rc/left_arrow_disabled.png&quot;);
+  }
+  
+  QTabBar QToolButton::right-arrow:enabled {
+    image: url(&quot;:/qss_icons/rc/right_arrow.png&quot;);
+  }
+  
+  QTabBar QToolButton::right-arrow:disabled {
+    image: url(&quot;:/qss_icons/rc/right_arrow_disabled.png&quot;);
+  }
+  
+  /* QDockWiget -------------------------------------------------------------
+  
+  --------------------------------------------------------------------------- */
+  QDockWidget {
+    outline: 1px solid #32414B;
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    border-radius: 4px;
+    titlebar-close-icon: url(&quot;:/qss_icons/rc/close.png&quot;);
+    titlebar-normal-icon: url(&quot;:/qss_icons/rc/undock.png&quot;);
+  }
+  
+  QDockWidget::title {
+    /* Better size for title bar */
+    padding: 6px;
+    border: none;
+    background-color: #32414B;
+  }
+  
+  QDockWidget::close-button {
+    background-color: #32414B;
+    border-radius: 4px;
+    border: none;
+  }
+  
+  QDockWidget::close-button:hover {
+    border: 1px solid #32414B;
+  }
+  
+  QDockWidget::close-button:pressed {
+    border: 1px solid #32414B;
+  }
+  
+  QDockWidget::float-button {
+    background-color: #32414B;
+    border-radius: 4px;
+    border: none;
+  }
+  
+  QDockWidget::float-button:hover {
+    border: 1px solid #32414B;
+  }
+  
+  QDockWidget::float-button:pressed {
+    border: 1px solid #32414B;
+  }
+  
+  /* QTreeView QListView QTableView -----------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtreeview
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qlistview
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtableview
+  
+  --------------------------------------------------------------------------- */
+  QTreeView:branch:selected, QTreeView:branch:hover {
+    background: url(&quot;:/qss_icons/rc/transparent.png&quot;);
+  }
+  
+  QTreeView:branch:has-siblings:!adjoins-item {
+    border-image: url(&quot;:/qss_icons/rc/transparent.png&quot;);
+  }
+  
+  QTreeView:branch:has-siblings:adjoins-item {
+    border-image: url(&quot;:/qss_icons/rc/transparent.png&quot;);
+  }
+  
+  QTreeView:branch:!has-children:!has-siblings:adjoins-item {
+    border-image: url(&quot;:/qss_icons/rc/transparent.png&quot;);
+  }
+  
+  QTreeView:branch:has-children:!has-siblings:closed, QTreeView:branch:closed:has-children:has-siblings {
+    image: url(&quot;:/qss_icons/rc/branch_closed.png&quot;);
+  }
+  
+  QTreeView:branch:open:has-children:!has-siblings, QTreeView:branch:open:has-children:has-siblings {
+    image: url(&quot;:/qss_icons/rc/branch_open.png&quot;);
+  }
+  
+  QTreeView:branch:has-children:!has-siblings:closed:hover, QTreeView:branch:closed:has-children:has-siblings:hover {
+    image: url(&quot;:/qss_icons/rc/branch_closed-on.png&quot;);
+  }
+  
+  QTreeView:branch:open:has-children:!has-siblings:hover, QTreeView:branch:open:has-children:has-siblings:hover {
+    image: url(&quot;:/qss_icons/rc/branch_open-on.png&quot;);
+  }
+  
+  QTreeView::indicator:checked,
+  QListView::indicator:checked {
+    image: url(&quot;:/qss_icons/rc/checkbox_checked.png&quot;);
+  }
+  
+  QTreeView::indicator:checked:hover, QTreeView::indicator:checked:focus, QTreeView::indicator:checked:pressed,
+  QListView::indicator:checked:hover,
+  QListView::indicator:checked:focus,
+  QListView::indicator:checked:pressed {
+    image: url(&quot;:/qss_icons/rc/checkbox_checked_focus.png&quot;);
+  }
+  
+  QTreeView::indicator:unchecked,
+  QListView::indicator:unchecked {
+    image: url(&quot;:/qss_icons/rc/checkbox_unchecked.png&quot;);
+  }
+  
+  QTreeView::indicator:unchecked:hover, QTreeView::indicator:unchecked:focus, QTreeView::indicator:unchecked:pressed,
+  QListView::indicator:unchecked:hover,
+  QListView::indicator:unchecked:focus,
+  QListView::indicator:unchecked:pressed {
+    image: url(&quot;:/qss_icons/rc/checkbox_unchecked_focus.png&quot;);
+  }
+  
+  QTreeView::indicator:indeterminate,
+  QListView::indicator:indeterminate {
+    image: url(&quot;:/qss_icons/rc/checkbox_indeterminate.png&quot;);
+  }
+  
+  QTreeView::indicator:indeterminate:hover, QTreeView::indicator:indeterminate:focus, QTreeView::indicator:indeterminate:pressed,
+  QListView::indicator:indeterminate:hover,
+  QListView::indicator:indeterminate:focus,
+  QListView::indicator:indeterminate:pressed {
+    image: url(&quot;:/qss_icons/rc/checkbox_indeterminate_focus.png&quot;);
+  }
+  
+  QTreeView,
+  QListView,
+  QTableView,
+  QColumnView {
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    color: #F0F0F0;
+    gridline-color: #32414B;
+    border-radius: 4px;
+  }
+  
+  QTreeView:disabled,
+  QListView:disabled,
+  QTableView:disabled,
+  QColumnView:disabled {
+    background-color: #19232D;
+    color: #787878;
+  }
+  
+  QTreeView:selected,
+  QListView:selected,
+  QTableView:selected,
+  QColumnView:selected {
+    background: #1464A0;
+    color: #32414B;
+  }
+  
+  QTreeView::hover,
+  QListView::hover,
+  QTableView::hover,
+  QColumnView::hover {
+    background-color: #19232D;
+    border: 1px solid #148CD2;
+  }
+  
+  QTreeView::item:pressed,
+  QListView::item:pressed,
+  QTableView::item:pressed,
+  QColumnView::item:pressed {
+    background-color: #1464A0;
+  }
+  
+  QTreeView::item:selected:hover,
+  QListView::item:selected:hover,
+  QTableView::item:selected:hover,
+  QColumnView::item:selected:hover {
+    background: #1464A0;
+    color: #19232D;
+  }
+  
+  QTreeView::item:selected:active,
+  QListView::item:selected:active,
+  QTableView::item:selected:active,
+  QColumnView::item:selected:active {
+    background-color: #1464A0;
+  }
+  
+  QTreeView::item:!selected:hover,
+  QListView::item:!selected:hover,
+  QTableView::item:!selected:hover,
+  QColumnView::item:!selected:hover {
+    outline: 0;
+    color: #148CD2;
+    background-color: #32414B;
+  }
+  
+  QTableCornerButton::section {
+    background-color: #19232D;
+    border: 1px transparent #32414B;
+    border-radius: 0px;
+  }
+  
+  /* QHeaderView ------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qheaderview
+  
+  --------------------------------------------------------------------------- */
+  QHeaderView {
+    background-color: #32414B;
+    border: 0px transparent #32414B;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px;
+  }
+  
+  QHeaderView:disabled {
+    background-color: #32414B;
+    border: 1px transparent #32414B;
+    padding: 2px;
+  }
+  
+  QHeaderView::section {
+    background-color: #32414B;
+    color: #F0F0F0;
+    padding: 2px;
+    border-radius: 0px;
+    text-align: left;
+  }
+  
+  QHeaderView::section:checked {
+    color: #F0F0F0;
+    background-color: #1464A0;
+  }
+  
+  QHeaderView::section:checked:disabled {
+    color: #787878;
+    background-color: #14506E;
+  }
+  
+  QHeaderView::section::horizontal {
+    border-left: 1px solid #19232D;
+  }
+  
+  QHeaderView::section::horizontal::first, QHeaderView::section::horizontal::only-one {
+    border-left: 1px solid #32414B;
+  }
+  
+  QHeaderView::section::horizontal:disabled {
+    color: #787878;
+  }
+  
+  QHeaderView::section::vertical {
+    border-top: 1px solid #19232D;
+  }
+  
+  QHeaderView::section::vertical::first, QHeaderView::section::vertical::only-one {
+    border-top: 1px solid #32414B;
+  }
+  
+  QHeaderView::section::vertical:disabled {
+    color: #787878;
+  }
+  
+  QHeaderView::down-arrow {
+    /* Those settings (border/width/height/background-color) solve bug */
+    /* transparent arrow background and size */
+    background-color: #32414B;
+    width: 16px;
+    height: 16px;
+    border-right: 1px solid #19232D;
+    image: url(&quot;:/qss_icons/rc/down_arrow.png&quot;);
+  }
+  
+  QHeaderView::up-arrow {
+    background-color: #32414B;
+    width: 16px;
+    height: 16px;
+    border-right: 1px solid #19232D;
+    image: url(&quot;:/qss_icons/rc/up_arrow.png&quot;);
+  }
+  
+  /* QToolBox --------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtoolbox
+  
+  --------------------------------------------------------------------------- */
+  QToolBox {
+    padding: 0px;
+    border: 1px solid #32414B;
+  }
+  
+  QToolBox::selected {
+    padding: 0px;
+    border: 2px solid #1464A0;
+  }
+  
+  QToolBox::tab {
+    background-color: #19232D;
+    border: 1px solid #32414B;
+    color: #F0F0F0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+  
+  QToolBox::tab:disabled {
+    color: #787878;
+  }
+  
+  QToolBox::tab:selected {
+    background-color: #505F69;
+    border-bottom: 2px solid #1464A0;
+  }
+  
+  QToolBox::tab:selected:disabled {
+    background-color: #32414B;
+    border-bottom: 2px solid #14506E;
+  }
+  
+  QToolBox::tab:!selected {
+    background-color: #32414B;
+    border-bottom: 2px solid #32414B;
+  }
+  
+  QToolBox::tab:!selected:disabled {
+    background-color: #19232D;
+  }
+  
+  QToolBox::tab:hover {
+    border-color: #148CD2;
+    border-bottom: 2px solid #148CD2;
+  }
+  
+  QToolBox QScrollArea QWidget QWidget {
+    padding: 0px;
+    background-color: #19232D;
+  }
+  
+  /* QFrame -----------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qframe
+  
+  --------------------------------------------------------------------------- */
+  QFrame {
+    border-radius: 4px;
+    border: 1px solid #32414B;
+  }
+  
+  QFrame[frameShape=&quot;0&quot;] {
+    border-radius: 4px;
+    border: 1px transparent #32414B;
+  }
+  
+  QFrame[height=&quot;3&quot;], QFrame[width=&quot;3&quot;] {
+    background-color: #19232D;
+  }
+  
+  /* QSplitter --------------------------------------------------------------
+  
+  https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qsplitter
+  
+  --------------------------------------------------------------------------- */
+  QSplitter {
+    background-color: #32414B;
+    spacing: 0px;
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  QSplitter::separator {
+    background-color: #32414B;
+    border: 0px solid #19232D;
+    spacing: 0px;
+    padding: 1px;
+    margin: 0px;
+  }
+  
+  QSplitter::separator:hover {
+    background-color: #787878;
+  }
+  
+  QSplitter::separator:horizontal {
+    width: 5px;
+    image: url(&quot;:/qss_icons/rc/Vsepartoolbar.png&quot;);
+  }
+  
+  QSplitter::separator:vertical {
+    height: 5px;
+    image: url(&quot;:/qss_icons/rc/Hsepartoolbar.png&quot;);
+  }
+  
+  /* QDateEdit --------------------------------------------------------------
+  
+  --------------------------------------------------------------------------- */
+  QDateEdit {
+    selection-background-color: #1464A0;
+    border-style: solid;
+    border: 1px solid #32414B;
+    border-radius: 4px;
+    /* This fixes 103, 111 */
+    padding-top: 2px;
+    /* This fixes 103, 111 */
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    min-width: 10px;
+  }
+  
+  QDateEdit:on {
+    selection-background-color: #1464A0;
+  }
+  
+  QDateEdit::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  
+  QDateEdit::down-arrow {
+    image: url(&quot;:/qss_icons/rc/down_arrow_disabled.png&quot;);
+  }
+  
+  QDateEdit::down-arrow:on, QDateEdit::down-arrow:hover, QDateEdit::down-arrow:focus {
+    image: url(&quot;:/qss_icons/rc/down_arrow.png&quot;);
+  }
+  
+  QDateEdit QAbstractItemView {
+    background-color: #19232D;
+    border-radius: 4px;
+    border: 1px solid #32414B;
+    selection-background-color: #1464A0;
+  }
+  
+  QAbstractView:hover {
+    border: 1px solid #148CD2;
+    color: #F0F0F0;
+  }
+  
+  QAbstractView:selected {
+    background: #1464A0;
+    color: #32414B;
+  }
+  
+  PlotWidget {
+    /* Fix cut labels in plots #134 */
+    padding: 0px;
+  }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>371</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>5</number>
+    </property>
+    <property name="tabBarAutoHide">
+     <bool>false</bool>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Home</string>
+     </attribute>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-10</y>
+        <width>361</width>
+        <height>408</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>337</width>
+         <height>616</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QPushButton" name="logo">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background:    #19232d;
+border-radius: 0px;
+padding:       20px 45px;
+color:         #ffffff;
+display:       inline-block;
+font:          normal bold 38px/1 &quot;Ubuntu&quot;, sans-serif;
+text-align:    center;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="photo.qrc">
+            <normaloff>:/.img/logo.png</normaloff>:/.img/logo.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>190</width>
+            <height>190</height>
+           </size>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+            <weight>75</weight>
+            <italic>true</italic>
+            <bold>true</bold>
+            <underline>true</underline>
+            <strikeout>false</strikeout>
+            <kerning>false</kerning>
+           </font>
+          </property>
+          <property name="text">
+           <string>ABOUT US</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>Ubuntu Light</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+            <kerning>true</kerning>
+           </font>
+          </property>
+          <property name="text">
+           <string>An app helps workers to regulate their 
+sleep, nutrition, and work in accordance
+with their routine. The app will deduce
+the required data using two types of
+inputs. The first type is the fixed data
+that the user will enter
+such as age,weight..etc</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <family>Ubuntu Light</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+            <kerning>true</kerning>
+           </font>
+          </property>
+          <property name="text">
+           <string>The second type is the variable data
+such as the exertion, and sleep periods.
+These data will be collected through
+wristbands that workers will wear that
+calculates blood pressure, heart rate,
+and calories. In addition, the person’s
+sleep periods will be detected by the
+change occurs in the heartbeat rate.</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>p.inf</string>
+     </attribute>
+     <widget class="QLineEdit" name="age">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>100</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>IBeamCursor</cursorShape>
+      </property>
+      <property name="toolTip">
+       <string>+18</string>
+      </property>
+      <property name="inputMask">
+       <string/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Age</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <italic>true</italic>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Please Fill This Form</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="weight">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>200</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>IBeamCursor</cursorShape>
+      </property>
+      <property name="inputMask">
+       <string/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Weight</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="length">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>150</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>IBeamCursor</cursorShape>
+      </property>
+      <property name="inputMask">
+       <string/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Length</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="name">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>IBeamCursor</cursorShape>
+      </property>
+      <property name="toolTip">
+       <string>Liss than 10 Charactars</string>
+      </property>
+      <property name="inputMask">
+       <string/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Name</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>250</y>
+        <width>201</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>working hours</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>6</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>7</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>8</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>9</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>11</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>12</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="comboBox_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>300</y>
+        <width>201</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="accessibleName">
+       <string/>
+      </property>
+      <item>
+       <property name="text">
+        <string>work time</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Morning</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Night</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>360</y>
+        <width>101</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Ubuntu Mono</family>
+        <pointsize>16</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>SUBMIT</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>350</y>
+        <width>201</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="accessibleName">
+       <string/>
+      </property>
+      <item>
+       <property name="text">
+        <string>Gender</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Male</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Female</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Food</string>
+     </attribute>
+     <widget class="QScrollArea" name="scrollArea_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>361</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>353</width>
+         <height>413</height>
+        </rect>
+       </property>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>351</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Please go to the previous page to fill the
+personal information</string>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>120</y>
+          <width>351</width>
+          <height>301</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QTabWidget" name="tabWidget_2">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>10</y>
+           <width>351</width>
+           <height>261</height>
+          </rect>
+         </property>
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
+         <widget class="QWidget" name="tab_10">
+          <attribute name="title">
+           <string>Carbohydrates</string>
+          </attribute>
+          <widget class="QTableWidget" name="tableWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>311</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <row>
+            <property name="text">
+             <string>Pastries</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="icon">
+             <iconset resource="photo.qrc">
+              <normaloff>:/.img/dessert.png</normaloff>:/.img/dessert.png</iconset>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>Pasta</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="icon">
+             <iconset resource="photo.qrc">
+              <normaloff>:/.img/spaghetti.png</normaloff>:/.img/spaghetti.png</iconset>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>Rice</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="icon">
+             <iconset resource="photo.qrc">
+              <normaloff>:/.img/rice.png</normaloff>:/.img/rice.png</iconset>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>Bread</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="icon">
+             <iconset resource="photo.qrc">
+              <normaloff>:/.img/bread.png</normaloff>:/.img/bread.png</iconset>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>Potato</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="icon">
+             <iconset resource="photo.qrc">
+              <normaloff>:/.img/potato.png</normaloff>:/.img/potato.png</iconset>
+            </property>
+           </row>
+           <column>
+            <property name="text">
+             <string>Calories NUM.</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Ratio</string>
+            </property>
+           </column>
+           <item row="0" column="0">
+            <property name="text">
+             <string>129</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Open Sans</family>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+           </item>
+           <item row="0" column="1">
+            <property name="text">
+             <string>16.125 gm</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Open Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+           </item>
+           <item row="1" column="0">
+            <property name="text">
+             <string>157</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+           </item>
+           <item row="1" column="1">
+            <property name="text">
+             <string>19.625 gm</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+           </item>
+           <item row="2" column="0">
+            <property name="text">
+             <string>130</string>
+            </property>
+           </item>
+           <item row="2" column="1">
+            <property name="text">
+             <string>16.25 gm</string>
+            </property>
+           </item>
+           <item row="3" column="0">
+            <property name="text">
+             <string>285</string>
+            </property>
+           </item>
+           <item row="3" column="1">
+            <property name="text">
+             <string>36 gm</string>
+            </property>
+           </item>
+           <item row="4" column="0">
+            <property name="text">
+             <string>77 </string>
+            </property>
+           </item>
+           <item row="4" column="1">
+            <property name="text">
+             <string>20.15 gm</string>
+            </property>
+           </item>
+          </widget>
+          <widget class="QLabel" name="label_11">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>195</y>
+             <width>221</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>This data for 100gm</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tab_11">
+          <attribute name="title">
+           <string>Proteins</string>
+          </attribute>
+          <widget class="QTableWidget" name="tableWidget_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>371</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <row>
+            <property name="text">
+             <string>Egg</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="icon">
+             <iconset resource="photo.qrc">
+              <normaloff>:/.img/eggs.png</normaloff>:/.img/eggs.png</iconset>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>Chicken Breast</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="icon">
+             <iconset resource="photo.qrc">
+              <normaloff>:/.img/chicken-breast.png</normaloff>:/.img/chicken-breast.png</iconset>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>Milk</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="icon">
+             <iconset resource="photo.qrc">
+              <normaloff>:/.img/milk.png</normaloff>:/.img/milk.png</iconset>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>Beef</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="icon">
+             <iconset resource="photo.qrc">
+              <normaloff>:/.img/beef.png</normaloff>:/.img/beef.png</iconset>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>Fish</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="icon">
+             <iconset resource="photo.qrc">
+              <normaloff>:/.img/fish.png</normaloff>:/.img/fish.png</iconset>
+            </property>
+           </row>
+           <column>
+            <property name="text">
+             <string>Calories NUM.</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Ratio</string>
+            </property>
+           </column>
+           <item row="0" column="0">
+            <property name="text">
+             <string>78</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Open Sans</family>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+           </item>
+           <item row="0" column="1">
+            <property name="text">
+             <string>6 gm</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Open Sans</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+           </item>
+           <item row="1" column="0">
+            <property name="text">
+             <string>284</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+           </item>
+           <item row="1" column="1">
+            <property name="text">
+             <string>53 gm</string>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+           </item>
+           <item row="2" column="0">
+            <property name="text">
+             <string>149</string>
+            </property>
+           </item>
+           <item row="2" column="1">
+            <property name="text">
+             <string>8 gm</string>
+            </property>
+           </item>
+           <item row="3" column="0">
+            <property name="text">
+             <string>216</string>
+            </property>
+           </item>
+           <item row="3" column="1">
+            <property name="text">
+             <string>26 gm</string>
+            </property>
+           </item>
+           <item row="4" column="0">
+            <property name="text">
+             <string>206</string>
+            </property>
+           </item>
+           <item row="4" column="1">
+            <property name="text">
+             <string>22 gm</string>
+            </property>
+           </item>
+          </widget>
+          <widget class="QLabel" name="label_10">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>195</y>
+             <width>221</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>This data for one pice</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+        <widget class="QPushButton" name="next">
+         <property name="geometry">
+          <rect>
+           <x>260</x>
+           <y>260</y>
+           <width>81</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Ubuntu Mono</family>
+           <pointsize>16</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>NEXT</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_13">
+     <attribute name="title">
+      <string>Page</string>
+     </attribute>
+     <widget class="QCheckBox" name="checkBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>52</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pastries</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pasta</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>140</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Bread</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Rice</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>101</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>chicken-breast</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>260</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Milk</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>200</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Egg</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Potato</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>370</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="calc">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>370</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Open Sans</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Calculate</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>251</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Calculate Chalories Per Meal</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_10">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>290</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Beef</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_14">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>320</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Fish</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>50</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Amount in gm</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>80</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Amount in gm</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_4">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>110</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Amount in gm</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_5">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>140</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Amount in gm</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_6">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>170</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Amount in gm</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_7">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>200</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Pices Num.</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_8">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>230</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Pices Num.</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_9">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>260</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Cups Num.</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_10">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>290</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Amount in gm</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_11">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>320</y>
+        <width>113</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Amount in gm</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Sleep</string>
+     </attribute>
+     <widget class="QComboBox" name="comboBox_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>When do you want to wake up?</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>05:00 AM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>06:00 AM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>07:00 AM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>08:00 AM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>09:00 AM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10:00 AM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>11:00 AM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>12:00 PM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>01:00 PM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>02:00 PM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>03:00 PM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>04:00 PM</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>05:00 PM</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Helvetica</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Bedtime starts at:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>100</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>The Bold Font</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>150</y>
+        <width>331</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Roboto Black</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>dev</string>
+     </attribute>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>0</y>
+        <width>111</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>The Bold Font</family>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>CREATED BY</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>150</y>
+        <width>141</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:7pt;&quot;&gt;Zeyad Hisham&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:    #19232d;
+border-radius: 0px;
+padding:       20px 45px;
+color:         #ffffff;
+display:       inline-block;
+font:          normal bold 38px/1 &quot;Ubuntu&quot;, sans-serif;
+text-align:    center;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="photo.qrc">
+        <normaloff>:/.img/zeyad.png</normaloff>:/.img/zeyad.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>140</width>
+        <height>140</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="textBrowser">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>190</y>
+        <width>211</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot;&gt;Python Developer&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt;&quot;&gt;Rising Senior at STEM Sharkya&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="food">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>460</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="photo.qrc">
+      <normaloff>:/.img/diet.png</normaloff>:/.img/diet.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>45</width>
+      <height>45</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="personal">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>460</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="photo.qrc">
+      <normaloff>:/.img/man.png</normaloff>:/.img/man.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>45</width>
+      <height>45</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Home">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>460</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="photo.qrc">
+      <normaloff>:/.img/house.png</normaloff>:/.img/house.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>45</width>
+      <height>45</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dev">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>460</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="photo.qrc">
+      <normaloff>:/.img/web-development.png</normaloff>:/.img/web-development.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>45</width>
+      <height>45</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sleep">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>460</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="photo.qrc">
+      <normaloff>:/.img/sleeping.png</normaloff>:/.img/sleeping.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>45</width>
+      <height>45</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>389</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="photo.qrc"/>
+ </resources>
+ <connections/>
+</ui>
